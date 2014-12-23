@@ -22,17 +22,11 @@
  * Way of payment   Visa / MasterCard, or LiqPay
  *
  */
-
-/**
- * Payment method liqpay form
- *
- * @author      Liqpay <support@liqpay.com>
- */
-class Liqpay_Liqpay_Block_PaymentInformation extends Mage_Payment_Block_Form
-{
-    protected function _construct()
-    {
-        $this->setTemplate('liqpay/payment_information.phtml');
-        parent::_construct();
-    }
-}
+?>
+<html>
+    <body>
+        <?php echo $this->__('You will be redirected to the Liqpay website in a few seconds.'); ?>
+        <?php echo $this->getForm()->toHtml(); ?>
+        <script>document.getElementById("liqpay_redirect").submit();</script>
+    </body>
+</html>

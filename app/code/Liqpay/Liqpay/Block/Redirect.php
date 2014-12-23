@@ -28,8 +28,34 @@
  *
  * @author      Liqpay <support@liqpay.com>
  */
-class Liqpay_Liqpay_Block_Redirect extends Mage_Core_Block_Template
+
+namespace Liqpay\Liqpay\Block;
+
+class Redirect extends \Magento\Framework\View\Element\Template
 {
+    /** @var \Liqpay\Liqpay\Model\Payment */
+    protected $_payment;
+
+    /** @var \Magento\Framework\Data\FormFactory */
+    protected $_formFactory;
+
+    /**
+     * @param \Magento\Framework\Data\FormFactory $formFactory
+     * @param \Liqpay\Liqpay\Model\Payment $payment
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Framework\Data\FormFactory $formFactory,
+        \Liqpay\Liqpay\Model\Payment $payment,
+        \Magento\Framework\View\Element\Template\Context $context,
+        array $data = []
+    ) {
+        parent::__construct($context, $data);
+
+        $this->_formFactory = $formFactory;
+        $this->_payment = $payment;
+    }
 
     /**
      * Set template with message
@@ -40,28 +66,28 @@ class Liqpay_Liqpay_Block_Redirect extends Mage_Core_Block_Template
         parent::_construct();
     }
 
-
     /**
      * Return redirect form
      *
-     * @return Varien_Data_Form
+     * @return \Magento\Framework\Data\Form
      */
     public function getForm()
     {
-        $paymentMethod = Mage::getModel('liqpay/paymentMethod');
-
-        //$form = new Form();
-        $form = new Varien_Data_Form();
-        $form->setAction($paymentMethod->getLiqpayPlaceUrl())
+        $form = $this->_formFactory->create();
+        $form->setAction($this->_payment->getLiqpayPlaceUrl())
              ->setId('liqpay_redirect')
              ->setName('liqpay_redirect')
              ->setData('accept-charset', 'utf-8')
              ->setUseContainer(true)
              ->setMethod('POST');
 
-        foreach ($paymentMethod->getRedirectFormFields() as $field=>$value) {
-            $form->addField($field,'hidden',array('name'=>$field,'value'=>$value));
+        foreach ($this->_payment->getRedirectFormFields() as $field => $value) {
+            $form->addField($field, 'hidden', array(
+                'name' => $field,
+                'value' => $value
+            ));
         }
+
         return $form;
     }
 }

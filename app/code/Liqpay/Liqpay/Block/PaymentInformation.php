@@ -24,10 +24,18 @@
  */
 
 /**
- * Payment method liqpay helper
+ * Payment method liqpay form
  *
  * @author      Liqpay <support@liqpay.com>
  */
-class Liqpay_Liqpay_Helper_Data extends Mage_Core_Helper_Abstract {
 
+namespace Liqpay\Liqpay\Block;
+
+class PaymentInformation extends \Magento\Payment\Block\Form
+{
+    protected function _construct()
+    {
+        $this->setTemplate('payment_information.phtml');
+        parent::_construct();
+    }
 }

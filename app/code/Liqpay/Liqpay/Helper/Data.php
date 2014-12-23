@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Liqpay Payment Module
  *
@@ -23,17 +22,16 @@
  * Way of payment   Visa / MasterCard, or LiqPay
  *
  */
--->
-<config>
-    <modules>
-        <Liqpay_Liqpay>
-            <active>true</active>
-            <codePool>local</codePool>
-            <depends>
-                <Mage_Payment />
-                <Mage_Sales/>
-                <Mage_Checkout/>
-            </depends>
-        </Liqpay_Liqpay>
-    </modules>
-</config>
+
+/**
+ * Payment method liqpay helper
+ *
+ * @author      Liqpay <support@liqpay.com>
+ */
+
+namespace Liqpay\Liqpay\Helper;
+
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
+{
+
+}

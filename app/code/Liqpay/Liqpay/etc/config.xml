@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Liqpay Payment Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category        Liqpay
+ * @package         Liqpay_Liqpay
+ * @version         0.0.1
+ * @author          Liqpay
+ * @copyright       Copyright (c) 2014 Liqpay
+ * @license         http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
+ * EXTENSION INFORMATION
+ *
+ * Magento          Community Edition 1.8.1.0
+ * LiqPay API       Click&Buy 1.2 (https://www.liqpay.com/ru/doc)
+ * Way of payment   Visa / MasterCard, or LiqPay
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <!--<frontend>-->
+        <!--<secure_url>-->
+            <!--<liqpay_liqpay>/liqpay/liqpay</liqpay_liqpay>-->
+        <!--</secure_url>-->
+    <!--</frontend>-->
+    <default>
+        <payment>
+            <liqpay>
+                <active>1</active>
+                <model>Liqpay\Liqpay\Model\Payment</model>
+                <title>Liqpay (www.liqpay.com)</title>
+                <liqpay_action>https://www.liqpay.com/api/pay</liqpay_action>
+                <liqpay_public_key backend_model="Magento\Backend\Model\Config\Backend\Encrypted" />
+                <liqpay_private_key backend_model="Magento\Backend\Model\Config\Backend\Encrypted" />
+            </liqpay>
+        </payment>
+    </default>
+</config>
