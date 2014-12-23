@@ -62,7 +62,7 @@ class Redirect extends \Magento\Framework\View\Element\Template
      */
     protected function _construct()
     {
-        $this->setTemplate('liqpay/redirect.phtml');
+        $this->setTemplate('redirect.phtml');
         parent::_construct();
     }
 

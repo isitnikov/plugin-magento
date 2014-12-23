@@ -52,9 +52,9 @@ class Result extends \Liqpay\Liqpay\Controller\Payment
             __('Customer successfully got back from Liqpay payment interface.')
         )->save();
 
-        $session->setQuoteId($quote_id);
-        $session->getQuote()->setIsActive(false)->save();
-        $session->setLastRealOrderId($order_id);
+        $this->_checkoutSession->setQuoteId($quote_id);
+        $this->_checkoutSession->getQuote()->setIsActive(false)->save();
+        $this->_checkoutSession->setLastRealOrderId($order_id);
 
         $this->_redirect('checkout/onepage/success', array('_secure' => true));
     }

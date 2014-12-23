@@ -39,6 +39,7 @@
                 <liqpay_action>https://www.liqpay.com/api/pay</liqpay_action>
                 <liqpay_public_key backend_model="Magento\Backend\Model\Config\Backend\Encrypted" />
                 <liqpay_private_key backend_model="Magento\Backend\Model\Config\Backend\Encrypted" />
+                <sandbox>0</sandbox>
             </liqpay>
         </payment>
     </default>

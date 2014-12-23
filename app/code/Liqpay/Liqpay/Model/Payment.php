@@ -42,11 +42,11 @@ class Payment extends \Magento\Payment\Model\Method\AbstractMethod
      * Payment Method features
      * @var bool
      */
-    protected $_canCapture             = true;
-    protected $_canVoid                = true;
-    protected $_canUseForMultishipping = false;
-    protected $_canUseInternal         = false;
-    protected $_isInitializeNeeded     = true;
+    protected $_canCapture              = true;
+    protected $_canVoid                 = true;
+    protected $_canUseForMultishipping  = false;
+    protected $_canUseInternal          = false;
+    protected $_isInitializeNeeded      = true;
     protected $_isGateway               = false;
     protected $_canAuthorize            = false;
     protected $_canCapturePartial       = false;
@@ -55,7 +55,7 @@ class Payment extends \Magento\Payment\Model\Method\AbstractMethod
     protected $_canUseCheckout          = true;
 
     protected $_code = 'liqpay';
-    protected $_formBlockType = 'liqpay/paymentInformation';
+    protected $_formBlockType = '\Liqpay\Liqpay\Block\PaymentInformation';
     protected $_allowCurrencyCode = array('EUR','UAH','USD','RUB','RUR');
     protected $_order;
 

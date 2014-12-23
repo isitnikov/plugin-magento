@@ -1,4 +1,4 @@
 plugin-magento
 =============
 
-LiqPay plugin for magento CMS
+LiqPay plugin for Magento 2 DEV BETA
